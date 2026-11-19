@@ -1,0 +1,32 @@
+{
+  "name": "icloud-mcp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Single-user iCloud Mail and Calendar MCP server on Cloud Run: IMAP, SMTP and CalDAV behind a secret-path URL.",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "tsc",
+    "check": "tsc --noEmit",
+    "start": "node dist/server.js",
+    "pretest": "npm run build",
+    "test": "node --test test/*.test.mjs",
+    "deploy": "bash scripts/deploy.sh",
+    "store-credentials": "bash scripts/store-credentials.sh"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^5.12.1",
+    "ical.js": "^2.2.1",
+    "imapflow": "^2.12.1",
+    "mailparser": "^3.14.5",
+    "nodemailer": "^10.6.0",
+    "timezones-ical-library": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/mailparser": "^3.9.0",
+    "@types/node": "^24.19.2",
+    "typescript": "^5.9.3"
+  }
+}
